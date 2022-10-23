@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+}
+
+:root{
+    --color-white: #fff;
+    --color-grey: #828282;
+    --color-yellow: #DCC20C;
+    --color-yellow2: #8F7D00;
+    --color-black: #000;
+    --color-black2: rgba(0,0,0,.3);
+    --color-blue: #3593FF;
+}
+
+h1{font-size: 50px; color: #fff;}
+h2{font-size: 27px;}
+h3{font-size: 20px;}
+h4{font-size: 17px;}
+p{font-size: 15px;}
+
+body{
+    background: url(img/movie-imgs/the-dark-knight/wallpaper-the-dark-knight.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.background-blur{
+    width: 100%;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+
+    background-image: linear-gradient(to right, rgba(0,0,0,.4), rgba(255,255,255, .4));
+    backdrop-filter: blur(25px);
+
+    z-index: -1;
+}
+
+.main-page{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* nav bar */
+nav{
+    width: 25%;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-items{
+    margin: 7rem 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.nav-item a{
+    color: var(--color-grey);
+    font-size: 25px;
+
+    transition: all .2s ease;
+}
+
+
+.nav-item a:hover{
+    color: var(--color-white);
+}
+
+.nav-item > .active{
+    color: var(--color-white);
+}
+
+/* post slider */
+section{
+    width: 75%;
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+.post-slider__scroll{
+    width: 95%;
+    
+    position: absolute;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-scroll{
+    background: rgba(0,0,0, .4);
+    padding: .5rem;
+
+    width: 45px;
+    height: 45px;
+    
+    border: none;
+    border-radius: 50%;
+
+    color: var(--color-white);
+    font-size: 25px;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    transition: all .2s;
+}
+
+.btn-scroll:hover{
+    filter: drop-shadow(0 0 10px rgba(255,255,255, 1));
+}
+
+.post-slider{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    scroll-behavior: smooth;
+
+    overflow-x: auto;
+}
+
+.post-slider::-webkit-scrollbar{
+    display: none;
+}
+
+.movie-card{
+    min-width: 240px;
+
+    margin-right: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: all 1.5s cubic-bezier(0, 0.85, 0.17, 1);
+}
+
+.movie-card:hover{
+    transform: scale(1.1);
+
+    box-shadow: 10px 10px 15px rgba(0,0,0,.3);
+
+    z-index: 50;
+}
+
+.movie-card::before{
+    content: '';
+
+    width: 500px;
+    height: 200px;
+
+    background-color: var(--color-white);
+
+    position: absolute;
+
+    transform: rotate(30deg) translateY(-200px);
+
+    filter: blur(9px);
+    opacity: 0;
+
+    transition: all 1.5s cubic-bezier(0, 0.85, 0.17, 1);
+}
+
+.movie-card:hover::before{
+    transform: rotate(30deg) translateY(-130px);
+
+    opacity: .3;
+}
+
+.movie-img{
+    width: 100%;
+}
